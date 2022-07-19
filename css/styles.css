@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 :root {
   --accent: #3689fc;
@@ -17,7 +17,7 @@ html {
 
 body {
   align-items: center;
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -55,9 +55,27 @@ a:hover {
   width: max-content;
 }
 
+.modal h2 {
+  margin-top: 0;
+}
+
 label {
   display: block;
+  font-weight: 500;
   margin-bottom: 4px;
+}
+
+input,
+select {
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  height: 34px;
+  padding: 6px;
+  width: min(300px, 80vw);
+}
+
+select {
+  background-color: #efefef;
 }
 
 .button-container {
@@ -93,12 +111,12 @@ button.read {
 
 button.add:hover,
 button.read:hover {
-  background-color: hsl(215, 98%, 68%);
+  background-color: #5da0fd;
 }
 
 button.add:active,
 button.read:active {
-  background-color: hsl(215, 97%, 76%);
+  background-color: #86b8fd;
 }
 
 button.cancel,
@@ -108,17 +126,19 @@ button.delete {
 
 button.cancel:hover,
 button.delete:hover {
-  background-color: hsl(354, 70%, 62%);
+  background-color: #e25a68;
 }
 
 button.cancel:active,
 button.delete:active {
-  background-color: hsl(354, 70%, 70%);
+  background-color: #e87d88;
 }
 
 .header {
-  margin: 32px;
-  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 100%;
 }
 
 h1 {
@@ -127,6 +147,7 @@ h1 {
 
 main {
   display: grid;
+  margin-top: 32px;
   max-width: 1400px;
   width: 100%;
 }
@@ -146,7 +167,7 @@ main > button {
 
 .book {
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   padding: 32px;
   width: 30ch;
 }
@@ -175,6 +196,7 @@ main > button {
   display: flex;
   gap: 8px;
   justify-content: end;
+  margin-top: 32px;
 }
 
 .book button {
@@ -200,4 +222,14 @@ main > button {
 
 .footer-text {
   margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+    padding: 16px;
+  }
+
+  .header {
+    text-align: center;
+  }
 }
