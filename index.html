@@ -12,10 +12,39 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="modal">
+    <form class="modal-content">
+      <h2>Add a new book</h2>
+      <p>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+      </p>
+      <p>
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required>
+      </p>
+      <p>
+        <label for="pages">Number of pages:</label>
+        <input type="number" name="pages" id="pages" min="1" required>
+      </p>
+      <p>
+        <label for="status">Have you read this book?</label>
+        <select name="status" id="status">
+          <option value="read">Yes</option>
+          <option value="unread">No</option>
+        </select>
+      </p>
+      <div class="button-container">
+        <button type="button" class="form cancel">Cancel</button>
+        <button type="submit" class="form add">Add</button>
+      </div>
+    </form>
+  </div>
   <header class="header">
     <h1>Book Library</h1>
   </header>
   <main>
+    <button class="add">Add Book</button>
     <div class="book-list"></div>
   </main>
   <footer class="footer">

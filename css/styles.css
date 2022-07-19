@@ -29,12 +29,99 @@ a:hover {
   cursor: pointer;
 }
 
+.modal {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 6px;
+  left: 50%;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.button-container {
+  display: flex;
+  gap: 8px;
+  justify-content: right;
+  margin-top: 32px;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-weight: 700;
+  margin: 32px 32px 0;
+  padding: 16px 48px;
+  transition: 0.2s transform ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button.add {
+  background-color: var(--accent);
+}
+
+button.add:hover {
+  background-color: hsl(215, 98%, 68%);
+}
+
+button.add:active {
+  background-color: hsl(215, 97%, 76%);
+}
+
+button.cancel {
+  background-color: #dc3545;
+}
+
+button.cancel:hover {
+  background-color: hsl(354, 70%, 62%);
+}
+
+button.cancel:active {
+  background-color: hsl(354, 70%, 70%);
+}
+
+button.form {
+  margin: 0;
+  padding: 8px 24px;
+}
+
 .header {
+  margin: 32px;
   text-align: center;
 }
 
 h1 {
-  margin: 32px;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  justify-items: center;
 }
 
 .book-list {
