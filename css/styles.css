@@ -86,15 +86,18 @@ button:active {
   transform: scale(0.96);
 }
 
-button.add {
+button.add,
+button.read {
   background-color: var(--accent);
 }
 
-button.add:hover {
+button.add:hover,
+button.read:hover {
   background-color: hsl(215, 98%, 68%);
 }
 
-button.add:active {
+button.add:active,
+button.read:active {
   background-color: hsl(215, 97%, 76%);
 }
 
@@ -130,7 +133,6 @@ main {
 
 main > button {
   justify-self: center;
-  margin: 32px 32px 0;
   padding: 16px 48px;
 }
 
@@ -171,6 +173,7 @@ main > button {
 
 .buttons-container {
   display: flex;
+  gap: 8px;
   justify-content: end;
 }
 

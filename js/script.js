@@ -53,6 +53,10 @@ function Book(title, author, numPages, isRead) {
   this.isRead = isRead;
 }
 
+Book.prototype.toggleRead = function () {
+  this.isRead = !this.isRead;
+};
+
 function addBookToLibrary(title, author, numPages, isRead) {
   const newBook = new Book(title, author, numPages, isRead);
   bookList.push(newBook);
@@ -80,6 +84,10 @@ function generateBook(book, index) {
 
 function generateText(book, node) {
   for (const property in book) {
+    if (!book.hasOwnProperty(property)) {
+      continue;
+    }
+
     let value = book[property];
     if (property === "isRead") {
       value = value ? "Read" : "Unread";
@@ -95,6 +103,14 @@ function generateText(book, node) {
 function generateButtons(node) {
   const container = document.createElement("div");
 
+  const readButton = document.createElement("button");
+  const readSpan = document.createElement("span");
+  readSpan.className = "iconify";
+  readSpan.setAttribute("data-icon", "mdi:check-bold");
+  readButton.className = "read";
+  readButton.appendChild(readSpan);
+  readButton.addEventListener("click", (e) => toggleStatus(e));
+
   const deleteButton = document.createElement("button");
   const deleteSpan = document.createElement("span");
   deleteSpan.className = "iconify";
@@ -104,6 +120,7 @@ function generateButtons(node) {
   deleteButton.addEventListener("click", (e) => deleteBook(e));
 
   container.className = "buttons-container";
+  container.appendChild(readButton);
   container.appendChild(deleteButton);
   node.appendChild(container);
 }
@@ -112,6 +129,13 @@ function deleteBook(e) {
   const bookElement = e.target.parentNode.parentNode;
   const bookIdx = bookElement.getAttribute("data-index");
   bookList.splice(bookIdx, 1);
+  displayBooks();
+}
+
+function toggleStatus(e) {
+  const bookElement = e.target.parentNode.parentNode;
+  const bookIdx = bookElement.getAttribute("data-index");
+  bookList[bookIdx].toggleRead();
   displayBooks();
 }
 
