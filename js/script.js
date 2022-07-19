@@ -1,7 +1,12 @@
 const addButton = document.querySelector("main button.add");
 const bookContainer = document.querySelector(".book-list");
-const formAddButton = document.querySelector("form button.add");
-const formCancelButton = document.querySelector("form button.cancel");
+const form = document.querySelector("form");
+const formAddButton = form.querySelector("button.add");
+const formCancelButton = form.querySelector("button.cancel");
+const inputAuthor = document.getElementById("author");
+const inputPages = document.getElementById("pages");
+const inputStatus = document.getElementById("status");
+const inputTitle = document.getElementById("title");
 const modal = document.querySelector(".modal");
 
 let bookList = [];
@@ -10,6 +15,7 @@ let bookList = [];
 // Event Listeners
 //
 addButton.addEventListener("click", toggleModal);
+form.addEventListener("submit", (e) => submitForm(e));
 formCancelButton.addEventListener("click", toggleModal);
 
 function toggleModal() {
@@ -20,6 +26,20 @@ function toggleModal() {
     modal.classList.add("active");
     modal.style.display = "block";
   }
+}
+
+function submitForm(e) {
+  e.preventDefault();
+
+  addBookToLibrary(
+    inputTitle.value,
+    inputAuthor.value,
+    inputPages.value,
+    inputStatus.value
+  );
+
+  form.reset();
+  toggleModal();
 }
 
 //
