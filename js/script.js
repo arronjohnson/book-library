@@ -31,14 +31,13 @@ function toggleModal() {
 function submitForm(e) {
   e.preventDefault();
 
-  const newBook = new Book(
+  addBookToLibrary(
     inputTitle.value,
     inputAuthor.value,
     inputPages.value,
     inputStatus.value === "read"
   );
-  addBookToLibrary(newBook);
-  generateBook(newBook);
+  displayBooks();
 
   form.reset();
   toggleModal();
@@ -63,16 +62,19 @@ function addBookToLibrary(title, author, numPages, isRead) {
 // DOM Manipulation
 //
 function displayBooks() {
-  for (const book of bookList) {
-    generateBook(book);
+  bookContainer.innerHTML = "";
+  for (let i = 0; i < bookList.length; i++) {
+    generateBook(bookList[i], i);
   }
 }
 
-function generateBook(book) {
+function generateBook(book, index) {
   const node = document.createElement("div");
 
   node.className = "book";
+  node.setAttribute("data-index", index);
   generateText(book, node);
+  generateButtons(node);
   bookContainer.appendChild(node);
 }
 
@@ -88,6 +90,29 @@ function generateText(book, node) {
     paragraph.textContent = value;
     node.appendChild(paragraph);
   }
+}
+
+function generateButtons(node) {
+  const container = document.createElement("div");
+
+  const deleteButton = document.createElement("button");
+  const deleteSpan = document.createElement("span");
+  deleteSpan.className = "iconify";
+  deleteSpan.setAttribute("data-icon", "mdi:delete");
+  deleteButton.className = "delete";
+  deleteButton.appendChild(deleteSpan);
+  deleteButton.addEventListener("click", (e) => deleteBook(e));
+
+  container.className = "buttons-container";
+  container.appendChild(deleteButton);
+  node.appendChild(container);
+}
+
+function deleteBook(e) {
+  const bookElement = e.target.parentNode.parentNode;
+  const bookIdx = bookElement.getAttribute("data-index");
+  bookList.splice(bookIdx, 1);
+  displayBooks();
 }
 
 // testing purposes

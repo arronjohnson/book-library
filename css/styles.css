@@ -93,15 +93,18 @@ button.add:active {
   background-color: hsl(215, 97%, 76%);
 }
 
-button.cancel {
+button.cancel,
+button.delete {
   background-color: #dc3545;
 }
 
-button.cancel:hover {
+button.cancel:hover,
+button.delete:hover {
   background-color: hsl(354, 70%, 62%);
 }
 
-button.cancel:active {
+button.cancel:active,
+button.delete:active {
   background-color: hsl(354, 70%, 70%);
 }
 
@@ -159,6 +162,21 @@ main > button {
 
 .isRead::before {
   content: "Status: ";
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: end;
+}
+
+.book button {
+  display: grid;
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+.iconify {
+  pointer-events: none;
 }
 
 .footer {
