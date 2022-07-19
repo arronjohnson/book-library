@@ -35,7 +35,7 @@ function submitForm(e) {
     inputTitle.value,
     inputAuthor.value,
     inputPages.value,
-    inputStatus.value
+    inputStatus.value === "read"
   );
   addBookToLibrary(newBook);
   generateBook(newBook);
