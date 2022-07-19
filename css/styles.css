@@ -68,8 +68,8 @@ button {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-weight: 700;
-  margin: 32px 32px 0;
-  padding: 16px 48px;
+  margin: 0;
+  padding: 8px 24px;
   transition: 0.2s transform ease-in-out;
 }
 
@@ -105,11 +105,6 @@ button.cancel:active {
   background-color: hsl(354, 70%, 70%);
 }
 
-button.form {
-  margin: 0;
-  padding: 8px 24px;
-}
-
 .header {
   margin: 32px;
   text-align: center;
@@ -121,13 +116,20 @@ h1 {
 
 main {
   display: grid;
-  justify-items: center;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+main > button {
+  justify-self: center;
+  margin: 32px 32px 0;
+  padding: 16px 48px;
 }
 
 .book-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 32px;
+  grid-template-columns: repeat(auto-fit, 30ch);
   justify-content: center;
   margin: 32px;
 }
