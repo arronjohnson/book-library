@@ -31,12 +31,14 @@ function toggleModal() {
 function submitForm(e) {
   e.preventDefault();
 
-  addBookToLibrary(
+  const newBook = new Book(
     inputTitle.value,
     inputAuthor.value,
     inputPages.value,
     inputStatus.value
   );
+  addBookToLibrary(newBook);
+  generateBook(newBook);
 
   form.reset();
   toggleModal();
@@ -62,12 +64,16 @@ function addBookToLibrary(title, author, numPages, isRead) {
 //
 function displayBooks() {
   for (const book of bookList) {
-    const node = document.createElement("div");
-
-    node.className = "book";
-    generateText(book, node);
-    bookContainer.appendChild(node);
+    generateBook(book);
   }
+}
+
+function generateBook(book) {
+  const node = document.createElement("div");
+
+  node.className = "book";
+  generateText(book, node);
+  bookContainer.appendChild(node);
 }
 
 function generateText(book, node) {
