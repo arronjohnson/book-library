@@ -101,24 +101,25 @@ function generateText(book, node) {
 }
 
 function generateButtons(node) {
-  const container = document.createElement("div");
-
-  const readButton = document.createElement("button");
   const readSpan = document.createElement("span");
   readSpan.className = "iconify";
   readSpan.setAttribute("data-icon", "mdi:check-bold");
+
+  const readButton = document.createElement("button");
   readButton.className = "read";
   readButton.appendChild(readSpan);
   readButton.addEventListener("click", (e) => toggleStatus(e));
 
-  const deleteButton = document.createElement("button");
   const deleteSpan = document.createElement("span");
   deleteSpan.className = "iconify";
   deleteSpan.setAttribute("data-icon", "mdi:delete");
+
+  const deleteButton = document.createElement("button");
   deleteButton.className = "delete";
   deleteButton.appendChild(deleteSpan);
   deleteButton.addEventListener("click", (e) => deleteBook(e));
 
+  const container = document.createElement("div");
   container.className = "buttons-container";
   container.appendChild(readButton);
   container.appendChild(deleteButton);
@@ -126,20 +127,23 @@ function generateButtons(node) {
 }
 
 function deleteBook(e) {
-  const bookElement = e.target.parentNode.parentNode;
-  const bookIdx = bookElement.getAttribute("data-index");
-  bookList.splice(bookIdx, 1);
+  const index = getBookIndex(e);
+  bookList.splice(index, 1);
   displayBooks();
 }
 
 function toggleStatus(e) {
-  const bookElement = e.target.parentNode.parentNode;
-  const bookIdx = bookElement.getAttribute("data-index");
-  bookList[bookIdx].toggleRead();
+  const index = getBookIndex(e);
+  bookList[index].toggleRead();
   displayBooks();
 }
 
-// testing purposes
+function getBookIndex(e) {
+  const bookElement = e.target.parentNode.parentNode;
+  return bookElement.getAttribute("data-index");
+}
+
+// Example entries
 addBookToLibrary("Harry Potter", "J.K. Rowling", 999, false);
 addBookToLibrary("Game of Thrones", "G.R.R. Martin", 999, false);
 displayBooks();

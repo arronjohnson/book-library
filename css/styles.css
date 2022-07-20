@@ -76,6 +76,7 @@ select {
 
 select {
   background-color: #efefef;
+  color: #000;
 }
 
 .button-container {
@@ -226,7 +227,7 @@ main > button {
 
 @media (max-width: 767px) {
   .modal-content {
-    padding: 16px;
+    padding: 20px;
   }
 
   .header {
