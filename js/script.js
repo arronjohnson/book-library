@@ -9,7 +9,7 @@ const inputStatus = document.getElementById("status");
 const inputTitle = document.getElementById("title");
 const modal = document.querySelector(".modal");
 
-let bookList = [];
+const bookList = [];
 
 //
 // Event Listeners
@@ -46,16 +46,18 @@ function submitForm(e) {
 //
 // Book Objects
 //
-function Book(title, author, numPages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.numPages = numPages;
-  this.isRead = isRead;
-}
+class Book {
+  constructor(title, author, numPages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.numPages = numPages;
+    this.isRead = isRead;
+  }
 
-Book.prototype.toggleRead = function () {
-  this.isRead = !this.isRead;
-};
+  toggleRead() {
+    this.isRead = !this.isRead;
+  }
+}
 
 function addBookToLibrary(title, author, numPages, isRead) {
   const newBook = new Book(title, author, numPages, isRead);
