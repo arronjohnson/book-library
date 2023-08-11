@@ -7,30 +7,32 @@
   <title>Book Library</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://kit.fontawesome.com/185f24df6a.js"
-    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/185f24df6a.js" crossorigin="anonymous"></script>
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <div class="modal">
-    <form class="modal-content">
+    <form class="modal-content" novalidate>
       <h2>Add a new book</h2>
       <p>
         <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required>
+        <input class="modal__input" type="text" name="title" id="title" required>
+        <span class="modal__validation" aria-live="polite"></span>
       </p>
       <p>
         <label for="author">Author:</label>
-        <input type="text" name="author" id="author" required>
+        <input class="modal__input" type="text" name="author" id="author" required>
+        <span class="modal__validation" aria-live="polite"></span>
       </p>
       <p>
         <label for="pages">Number of pages:</label>
-        <input type="number" name="pages" id="pages" min="1" required>
+        <input class="modal__input" type="number" name="pages" id="pages" min="1" required>
+        <span class="modal__validation" aria-live="polite"></span>
       </p>
       <p>
         <label for="status">Have you read this book?</label>
-        <select name="status" id="status">
+        <select class="modal__input" name="status" id="status">
           <option value="read">Yes</option>
           <option value="unread">No</option>
         </select>
@@ -50,20 +52,17 @@
   </main>
   <footer class="footer">
     <div class="footer-icons">
-      <a href="https://github.com/arronjohnson" target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://github.com/arronjohnson" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-github"></i>
       </a>
       <a href="https://www.linkedin.com/in/arronjohnson-uk/" target="_blank"
         rel="noopener noreferrer">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="http://arronjohnson.me/" target="_blank"
-        rel="noopener noreferrer">
+      <a href="http://arronjohnson.me/" target="_blank" rel="noopener noreferrer">
         <i class="fa-solid fa-earth-europe"></i>
       </a>
-      <a href="http://arronjohnson.me/" target="_blank"
-        rel="noopener noreferrer">
+      <a href="http://arronjohnson.me/" target="_blank" rel="noopener noreferrer">
         <i class="fa-solid fa-envelope"></i>
       </a>
     </div>
