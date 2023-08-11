@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
   --accent: #3689fc;
@@ -20,7 +20,7 @@ body {
   background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   min-height: 100%;
 }
 
@@ -53,6 +53,21 @@ a:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   width: max-content;
+}
+
+.modal__input {
+  display: block;
+}
+
+.modal__input--invalid {
+  border: 1px solid red;
+}
+
+.modal__validation {
+  color: red;
+  display: block;
+  margin-top: 2px;
+  min-height: 1.15rem;
 }
 
 .modal h2 {
@@ -178,19 +193,19 @@ main > button {
 }
 
 .title::before {
-  content: "Title: ";
+  content: 'Title: ';
 }
 
 .author::before {
-  content: "Author: ";
+  content: 'Author: ';
 }
 
 .numPages::before {
-  content: "Pages: ";
+  content: 'Pages: ';
 }
 
 .isRead::before {
-  content: "Status: ";
+  content: 'Status: ';
 }
 
 .buttons-container {
